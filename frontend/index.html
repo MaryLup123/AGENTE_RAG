@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Proyecto UMG — Análisis de Sistemas II</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/umg-logo.png" />
+  <style>
+    :root{
+      /* Paleta UMG (aprox) */
+      --umg-red:  #C6362B;
+      --umg-blue: #0B6AAE;
+      --umg-gold: #C9A33A;
+      --umg-cream:#F6F1E1;
+      --ink:      #111827;
+    }
+    body{font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color: var(--ink);}
+    /* Fondo con azul UMG y crema */
+    .bg-umg {
+      background:
+        radial-gradient(1200px 600px at -10% -20%, rgba(11,106,174,.18), transparent 60%),
+        radial-gradient(1000px 500px at 110% 10%, rgba(198,54,43,.12), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 30%, var(--umg-cream) 100%);
+    }
+    .brand-bar{
+      background: linear-gradient(90deg, var(--umg-red), var(--umg-blue));
+    }
+    .card{
+      border-radius: 1rem; background: #fff;
+      border: 1px solid rgba(2,6,23,.06);
+      box-shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+    .badge{
+      font-size:.75rem; padding:.25rem .6rem; border-radius:999px;
+      background: color-mix(in oklab, var(--umg-blue) 12%, white);
+      color: var(--umg-blue); font-weight:700;
+      border: 1px solid color-mix(in oklab, var(--umg-blue) 28%, white);
+    }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      border-radius:.75rem; padding:.65rem 1rem; font-weight:700; letter-spacing:.2px; }
+    .btn-primary{
+      background: linear-gradient(180deg, color-mix(in oklab, var(--umg-blue) 92%, #000) 0%, var(--umg-blue) 100%);
+      color: #fff; border: 1px solid color-mix(in oklab, var(--umg-blue) 60%, #000);
+      box-shadow: 0 8px 16px rgba(11,106,174,.18);
+    }
+    .btn-primary:hover{ filter: brightness(1.03); }
+    .btn-secondary{
+      background: #fff; color: var(--ink);
+      border: 1px solid color-mix(in oklab, var(--umg-blue) 26%, #e5e7eb);
+    }
+    .btn-accent{ /* rojo UMG para acciones */
+      background: linear-gradient(180deg, color-mix(in oklab, var(--umg-red) 90%, #000) 0%, var(--umg-red) 100%);
+      color:#fff; border:1px solid color-mix(in oklab, var(--umg-red) 60%, #000);
+      box-shadow: 0 8px 16px rgba(198,54,43,.16);
+    }
+    .input{
+      border:1px solid #e5e7eb; border-radius:.75rem; padding:.6rem .8rem; width:100%;
+      outline: none; transition: box-shadow .15s, border-color .15s;
+    }
+    .input:focus{
+      border-color: color-mix(in oklab, var(--umg-blue) 55%, #e5e7eb);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--umg-blue) 25%, transparent);
+    }
+    .divider{
+      height:4px; border-radius: 999px; background:
+      linear-gradient(90deg, var(--umg-red), var(--umg-gold), var(--umg-blue));
+      opacity:.85;
+    }
+    .kicker{ font-size:.72rem; text-transform:uppercase; letter-spacing:.15em; color:#475569; }
+  </style>
+</head>
+<body class="min-h-screen bg-umg">
+  <!-- Top brand bar -->
+  <div class="brand-bar h-1.5 w-full"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-20 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/static/logo.png" alt="UMG" class="h-10 w-10 rounded-full ring-1 ring-[color:var(--umg-gold)] object-contain">
+        <div>
+          <span class="kicker">Universidad Mariano Gálvez</span>
+          <h1 class="text-[22px] md:text-2xl font-extrabold tracking-tight">
+            Proyecto — Análisis de Sistemas II
+          </h1>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <span id="authStatus" class="badge">No autenticado</span>
+        <button id="btnShowAuth" class="btn btn-secondary">Iniciar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="border-y border-slate-200/60">
+    <div class="max-w-6xl mx-auto px-5 py-8 md:py-10">
+      <div class="flex items-start md:items-center justify-between gap-6 flex-col md:flex-row">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight">
+            IA Agent RAG para gestion documental
+          </h2>
+          <p class="text-slate-700 mt-2 max-w-2xl">
+            Este agente tiene la capacidad de aprender sobre cualquier documento, 
+            ingéstalos en la base vectorial y realiza preguntas con base en su contenido.
+            Estudiante: <span class="font-semibold">María Guadalupe Sagüi</span>.
+          </p>
+        </div>
+        <div class="text-right">
+          <div class="text-xs text-slate-600">
+            Tip: <code class="bg-white border border-slate-200 px-2 py-1 rounded">calc: (5*8+12)/3</code>
+          </div>
+        </div>
+      </div>
+      <div class="divider mt-6"></div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="max-w-6xl mx-auto px-5 py-8 md:py-10">
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Col izquierda -->
+      <section class="md:col-span-1 space-y-6">
+        <!-- Subir -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">1) Subir documentos</h3>
+            <span class="text-[11px] text-slate-500">PDF / TXT</span>
+          </div>
+          <input id="fileInput" type="file" multiple
+            class="block w-full text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
+                   file:bg-[color:var(--umg-blue)]/10 file:text-[color:var(--umg-blue)]
+                   file:font-semibold hover:file:bg-[color:var(--umg-blue)]/15"/>
+          <button id="btnUpload" class="btn btn-accent mt-3 w-full">Subir</button>
+          <p id="uploadStatus" class="text-xs mt-2 text-slate-700"></p>
+        </div>
+
+        <!-- Ingestar -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold">2) Ingestar al Vector DB</h3>
+            <span class="text-[11px] text-slate-500">Chroma / Qdrant</span>
+          </div>
+          <button id="btnIngest" class="btn btn-primary w-full">Ingestar</button>
+          <p id="ingestStatus" class="text-xs mt-2 text-slate-700"></p>
+        </div>
+      </section>
+
+      <!-- Col derecha: preguntar -->
+      <section class="md:col-span-2">
+        <div class="card p-5">
+          <h3 class="text-lg font-semibold mb-3">3) Hacer preguntas</h3>
+          <div class="flex gap-2">
+            <input id="query" type="text" placeholder="Escribe tu pregunta... (ej: ¿qué dice la política de vacaciones?)" class="input flex-1"/>
+            <button id="btnAsk" class="btn btn-primary">Preguntar</button>
+          </div>
+          <div id="answer" class="prose mt-4"></div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="text-center text-xs text-slate-600 mt-10">
+      &copy; 2025 Universidad Mariano Gálvez — Proyecto Final Análisis de Sistemas II - María Guadalupe Sagüi
+    </footer>
+  </main>
+
+  <!-- Modal de autenticación -->
+  <div id="authModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center">
+    <div class="bg-white rounded-2xl shadow p-6 w-full max-w-md">
+      <h3 class="text-xl font-bold mb-4">Autenticación</h3>
+      <label class="block text-sm">Correo</label>
+      <input id="authEmail" type="email" class="input mb-2" placeholder="tu@correo.com"/>
+      <label class="block text-sm">Contraseña</label>
+      <input id="authPass" type="password" class="input mb-4" placeholder="********"/>
+      <div class="flex gap-2 justify-end">
+        <button id="btnSignup" class="btn btn-secondary">Crear cuenta</button>
+        <button id="btnLogin" class="btn btn-primary">Iniciar sesión</button>
+      </div>
+      <p id="authMsg" class="text-xs mt-3 text-slate-600"></p>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

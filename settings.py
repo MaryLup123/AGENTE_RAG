@@ -1,0 +1,15 @@
+import os
+VECTOR_BACKEND = os.getenv("VECTOR_BACKEND", "chroma")
+CHROMA_PATH = os.getenv("CHROMA_PATH", "./chroma_store")
+QDRANT_URL = os.getenv("QDRANT_URL", "http://qdrant:6333")
+QDRANT_COLLECTION_DOCS = os.getenv("QDRANT_COLLECTION_DOCS", "docs")
+QDRANT_COLLECTION_MEMORY = os.getenv("QDRANT_COLLECTION_MEMORY", "memory")
+CORPUS_DIR = os.getenv("CORPUS_DIR", "./data/corpus")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+LLM_BACKEND = os.getenv("LLM_BACKEND", "ollama")
+LLM_MODEL = os.getenv("LLM_MODEL", "llama3.2:3b")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+JWT_SECRET = os.getenv("JWT_SECRET", "9e1172b339749dacf6ddbe5957599f2b22eac5f8e92275b3a273d707bea65de4")
+JWT_ALGORITHM = "HS256"
+JWT_EXPIRES_MIN = int(os.getenv("JWT_EXPIRES_MIN", "1440"))
+SQLITE_URL = os.getenv("SQLITE_URL", "sqlite:////app/sqlite/app.db")

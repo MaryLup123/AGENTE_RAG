@@ -1,0 +1,7 @@
+.card { border-radius: 1rem; background: white; padding: 1rem; box-shadow: 0 8px 30px rgba(0,0,0,.06); }
+.card-title { font-size: 1.125rem; font-weight: 600; margin-bottom: .75rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: .75rem; padding: .5rem 1rem; font-weight: 600; background: #111827; color: white; }
+.btn:hover { opacity: .9; }
+.btn-secondary { background: white; color: #111827; border: 1px solid #e5e7eb; }
+.input { border: 1px solid #e5e7eb; border-radius: .75rem; padding: .5rem .75rem; width: 100%; }
+.prose { white-space: pre-wrap; }
